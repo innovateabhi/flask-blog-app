@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog Website</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+<header class="navbar">
+    <h1>My Blog Website</h1>
+    <div>
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+        <a href="create" class="btn">Create Post</a>
+    </div>
+</header>
+
+<main class="container">
+    {% for post in posts %}
+    <div class="card">
+        {% if post[3] %}
+        <img src="/uploads/{{ post[3] }}" class="card-img">
+        {% endif %}
+
+        <div class="card-body">
+            <h2>{{ post[1] }}</h2>
+            <p>{{ post[2][:120] }}...</p>
+
+            <a href="/delete/{{ post[0] }}" class="delete">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+
+
+<script>
+// Select the toggle button
+const toggleBtn = document.getElementById('theme-toggle');
+const root = document.documentElement;
+
+// Check if user has a saved theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    root.setAttribute('data-theme', savedTheme);
+    toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+}
+
+// Toggle theme on button click
+toggleBtn.addEventListener('click', () => {
+    let currentTheme = root.getAttribute('data-theme');
+    
+    if (currentTheme === 'dark') {
+        root.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        toggleBtn.textContent = '🌙';
+    } else {
+        root.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.textContent = '☀️';
+    }
+});
+</script>
+
+</body>
+</html>

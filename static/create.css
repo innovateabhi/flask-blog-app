@@ -1,0 +1,143 @@
+/* ==========================
+   Variables for Light/Dark Mode
+========================== */
+:root {
+    --bg-color: #f4f6f8;
+    --text-color: #333;
+    --form-bg: white;
+    --btn-bg: #2563eb;
+    --btn-text: white;
+}
+
+:root[data-theme='dark'] {
+    --bg-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --form-bg: #2c2c2c;
+    --btn-bg: #4f46e5;
+    --btn-text: white;
+}
+
+/* ==========================
+   Body
+========================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ==========================
+   Form Wrapper
+========================== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 15px;
+}
+
+/* Theme Toggle */
+.theme-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* ==========================
+   Form Container
+========================== */
+.form-container {
+    background: var(--form-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Header */
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Inputs & Textarea */
+input[type="text"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Textarea */
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Back Link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input[type="text"], textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
