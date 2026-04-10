@@ -18,7 +18,7 @@
     {% for post in posts %}
     <div class="card">
         {% if post[3] %}
-        <img src="/uploads/{{ post[3] }}" class="card-img">
+        <img src="{{ post[3] }}" class="card-img">
         {% endif %}
 
         <div class="card-body">
